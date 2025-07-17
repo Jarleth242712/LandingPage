@@ -1,0 +1,982 @@
+/* Variables de Colores para Tema Oscuro Profesional */
+:root {
+    --primary-color: #8c9eff; /* Azul suave y luminoso, elegante sobre fondos oscuros (ej. títulos) */
+    --secondary-color: #b39ddb; /* Morado claro y sofisticado, complementario (ej. líneas de títulos, testimonios) */
+    --accent-color: #80cbc4; /* Turquesa claro y brillante, para acentos (ej. botones) */
+
+    --dark-text: #212121; /* Texto oscuro (casi negro) para usar sobre fondos claros (ej. dentro de cards blancas si las hubiera) */
+    --light-text: #eceff1; /* Texto muy claro (casi blanco) para usar sobre fondos oscuros (ej. texto general del body) */
+
+    --background-light: #2c2c2c; /* Fondo principal claro (gris oscuro suave) */
+    --background-dark: #1a1a1a; /* Fondo principal oscuro (gris muy oscuro/casi negro, ej. footer) */
+
+    --border-color: #424242; /* Color de borde para elementos discretos en fondos oscuros */
+}
+
+/* Estilos Generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif; /* Fuente profesional */
+    line-height: 1.6;
+    color: var(--light-text); /* Texto general del body ahora es claro */
+    background-color: var(--background-light); /* Fondo general del body ahora es oscuro */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color); /* Usamos el color primario para los títulos */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--secondary-color); /* La línea bajo el título usa el color secundario */
+    border-radius: 2px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-color); /* Los enlaces generales usan el color de acento */
+}
+
+a:hover {
+    color: var(--primary-color); /* Cambio sutil al hacer hover en enlaces */
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--accent-color); /* Botones usan el color de acento */
+    color: var(--dark-text); /* Texto oscuro para botones sobre fondo claro del botón */
+    padding: 12px 25px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.btn-primary:hover {
+    background-color: #6fb0ab; /* Tono ligeramente más oscuro del acento al hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Header */
+.main-header {
+    background-color: var(--background-light); /* Header oscuro */
+    color: var(--light-text); /* Texto del header claro */
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada en tema oscuro */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 30px;
+}
+
+.main-nav ul li a {
+    color: var(--light-text); /* Enlaces de navegación claros */
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.2s ease;
+    position: relative;
+    padding-bottom: 5px;
+    letter-spacing: 0.8px; /* Added for better appeal */
+}
+
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--accent-color); /* Subrayado con color de acento */
+    transition: width 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+.main-nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Estilo para el enlace de navegación activo */
+.main-nav ul li a.active {
+    color: var(--secondary-color); /* Color secundario para enlace activo */
+    font-weight: bold;
+}
+
+.main-nav ul li a.active::after {
+    width: 100%;
+    background-color: var(--secondary-color);
+}
+
+/* New button in header */
+.main-header .header-btn {
+    margin-left: 30px;
+    background-color: var(--primary-color);
+    color: var(--dark-text); /* Texto oscuro para el botón de header */
+}
+
+.main-header .header-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hero Section (Con imagen de fondo profesional y overlay) */
+.hero-section {
+    background: url('../image/portada.jpg') no-repeat center center/cover; /* IMAGEN PROFESIONAL DE FONDO */
+    position: relative;
+    color: var(--light-text); /* Texto claro para la sección hero */
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* Overlay oscuro para mejorar la legibilidad del texto sobre la imagen de fondo */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* OPACIDAD AJUSTADA A 0.6 para mayor contraste en tema oscuro */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative; /* Asegura que el contenido esté por encima del overlay */
+    z-index: 2;
+}
+
+.hero-content h2 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: var(--light-text); /* El texto del título principal es claro */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9); /* Sombra más fuerte para contraste en tema oscuro */
+}
+
+.hero-content p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    color: var(--light-text);
+}
+
+/* Services Section */
+.services-section {
+    padding: 60px 0;
+    background-color: var(--background-light); /* Fondo de sección de servicios oscuro */
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-item {
+    background-color: var(--background-dark); /* Fondo de los items de servicio más oscuro */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45); /* Sombra al hover más fuerte */
+}
+
+.service-item img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover img {
+    transform: scale(1.05); /* Ligeramente más grande al hacer hover */
+}
+
+.service-item h3 {
+    color: var(--primary-color); /* Títulos de servicio con color primario */
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    text-align: center; /* Alineado al centro para estética */
+}
+
+.service-item p {
+    color: var(--light-text); /* Texto de descripción de servicio claro */
+    font-size: 1em;
+    line-height: 1.7;
+}
+
+/* Gallery Section */
+.gallery-section {
+    padding: 60px 0;
+    background-color: var(--background-light);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--light-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    font-size: 1.3em;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* Mission & Vision Section */
+.mv-section {
+    padding: 60px 0;
+    background-color: var(--background-dark); /* Fondo oscuro para esta sección */
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+    justify-content: center;
+    gap: 40px;
+    text-align: center;
+}
+
+.mv-item {
+    background-color: var(--background-light); /* Fondo ligeramente más claro para los items */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    flex: 1; /* Permite que los elementos crezcan y se encojan */
+    min-width: 300px; /* Ancho mínimo para evitar que sean demasiado pequeños */
+    max-width: 45%; /* Ancho máximo para dos columnas */
+}
+
+.mv-item h3 {
+    color: var(--primary-color);
+    font-size: 2em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.mv-item p {
+    color: var(--light-text);
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+/* Financing Section */
+.financing-section {
+    padding: 60px 0;
+    background-color: var(--background-light);
+}
+
+.financing-section .section-description {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    color: var(--light-text);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.financing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.financing-item {
+    background-color: var(--background-dark);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex; /* Usar flexbox para el contenido */
+    flex-direction: column; /* Apilar elementos verticalmente */
+    justify-content: space-between; /* Espaciar contenido y botón */
+}
+
+.financing-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+}
+
+.financing-item h3 {
+    color: var(--secondary-color); /* Títulos de plan con color secundario */
+    font-size: 2em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.financing-item .price {
+    font-size: 3em;
+    font-weight: bold;
+    color: var(--accent-color); /* Precio con color de acento */
+    margin-bottom: 20px;
+}
+
+.financing-item .price span {
+    font-size: 0.5em;
+    color: var(--light-text);
+    font-weight: normal;
+}
+
+.financing-item ul {
+    list-style: none;
+    margin-bottom: 30px;
+    text-align: left;
+    flex-grow: 1; /* Permite que la lista de características ocupe el espacio restante */
+}
+
+.financing-item ul li {
+    margin-bottom: 10px;
+    color: var(--light-text);
+    font-size: 1.05em;
+    display: flex;
+    align-items: center;
+}
+
+.financing-item ul li i {
+    margin-right: 10px;
+    color: var(--accent-color); /* Iconos de check en color de acento */
+    font-size: 1.2em;
+}
+
+.financing-item ul li .fa-times-circle {
+    color: #e57373; /* Rojo para iconos de "no incluido" */
+}
+
+.financing-button-container {
+    margin-top: auto; /* Empuja el botón al final del item */
+}
+
+/* Calculator Section */
+.calculator-section {
+    padding: 60px 0;
+    background-color: var(--background-dark); /* Fondo oscuro para la calculadora */
+}
+
+.calculator-section .section-description {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    color: var(--light-text);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.calculator-form-container {
+    background-color: var(--background-light); /* Fondo ligeramente más claro para el contenedor del formulario */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 700px;
+    margin: 40px auto 0 auto;
+    text-align: left; /* Alinea el texto dentro del formulario a la izquierda */
+}
+
+.calculator-form-container p {
+    color: var(--light-text);
+    margin-bottom: 25px;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.calculator-form-container .form-group {
+    margin-bottom: 20px;
+}
+
+.calculator-form-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--primary-color); /* Etiquetas con color primario */
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.calculator-form-container input[type="number"],
+.calculator-form-container select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color); /* Bordes suaves */
+    border-radius: 5px;
+    background-color: #3a3a3a; /* Fondo de inputs oscuro */
+    color: var(--light-text); /* Texto de input claro */
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.calculator-form-container input[type="number"]:focus,
+.calculator-form-container select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(128, 203, 196, 0.4); /* Sombra de foco con acento */
+    outline: none;
+}
+
+.calculator-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.calculator-buttons .btn-primary,
+.calculator-buttons .btn-secondary {
+    padding: 12px 30px;
+    font-size: 1.1em;
+    flex: 1; /* Permite que los botones ocupen el mismo ancho */
+    max-width: 200px;
+    text-align: center;
+}
+
+.btn-secondary {
+    background-color: var(--border-color); /* Un color secundario para el botón de limpiar */
+    color: var(--light-text);
+}
+
+.btn-secondary:hover {
+    background-color: #555555;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+.calculator-results {
+    background-color: var(--background-dark); /* Fondo oscuro para los resultados */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 30px;
+    text-align: center; /* Alineación central para los resultados */
+}
+
+.calculator-results h3 {
+    color: var(--primary-color); /* Título de resultados con color primario */
+    margin-bottom: 15px;
+    font-size: 1.6em;
+    text-align: left;
+}
+
+.calculator-results p {
+    color: var(--light-text);
+    font-size: 1.15em;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calculator-results p span {
+    font-weight: bold;
+    color: var(--accent-color); /* Resalta los valores calculados */
+    font-size: 1.2em;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 60px 0;
+    background-color: var(--background-dark);
+}
+
+.testimonial-carousel-container {
+    position: relative;
+    max-width: 800px;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: var(--background-light); /* Fondo de carrusel más claro */
+    padding: 30px;
+}
+
+.testimonial-carousel-slide {
+    display: none; /* Hidden by default */
+}
+
+.testimonial-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.testimonial-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid var(--accent-color); /* Borde con color de acento */
+}
+
+.testimonial-text {
+    font-size: 1.3em;
+    color: var(--light-text);
+    margin-bottom: 15px;
+    font-style: italic;
+    line-height: 1.6;
+}
+
+.testimonial-author {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.1em;
+}
+
+.testimonial-carousel-button {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: var(--accent-color); /* Flechas con color de acento */
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+}
+
+.testimonial-carousel-button.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.testimonial-carousel-button.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.testimonial-carousel-button:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+/* Contact Section */
+.contact-section {
+    padding: 60px 0;
+    background-color: var(--background-light);
+}
+
+.contact-section .section-description {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1em;
+    color: var(--light-text);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 40px;
+    justify-content: center;
+}
+
+.contact-info, .contact-form {
+    background-color: var(--background-dark);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    flex: 1;
+    min-width: 300px;
+    max-width: 48%; /* Adjust for spacing */
+}
+
+.contact-info h3, .contact-form h3 {
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    font-size: 1.8em;
+    text-align: left; /* Alineado a la izquierda */
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    color: var(--light-text);
+    font-size: 1.05em;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info p i {
+    margin-right: 15px;
+    color: var(--accent-color);
+    font-size: 1.3em;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--secondary-color); /* Etiquetas de formulario con color secundario */
+    font-weight: bold;
+    font-size: 1.05em;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: #3a3a3a;
+    color: var(--light-text);
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form input[type="tel"]:focus,
+.contact-form textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(128, 203, 196, 0.4);
+    outline: none;
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form button.btn-primary {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    /* Colores brillantes y llamativos */
+    background-color: #25D366; /* Verde vibrante de WhatsApp */
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    /* Sombra para efecto de brillo */
+    box-shadow: 0 0 15px rgba(37, 211, 102, 0.8), 0 0 30px rgba(37, 211, 102, 0.5); /* Sombra doble para brillo */
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    /* Animación de pulsación */
+    animation: pulse 2s infinite cubic-bezier(0.66, 0, 0, 1);
+}
+
+.whatsapp-float:hover {
+    background-color: #1DA851; /* Un tono más oscuro al pasar el ratón */
+    transform: scale(1.1); /* Ligeramente más grande al pasar el ratón */
+    box-shadow: 0 0 20px rgba(37, 211, 102, 1), 0 0 40px rgba(37, 211, 102, 0.7); /* Brillo más intenso al pasar el ratón */
+    animation: none; /* Detener la animación al hacer hover */
+}
+
+/* Keyframes para la animación de pulsación */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(37, 211, 102, 0.8), 0 0 30px rgba(37, 211, 102, 0.5);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px rgba(37, 211, 102, 1), 0 0 50px rgba(37, 211, 102, 0.8);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(37, 211, 102, 0.8), 0 0 30px rgba(37, 211, 102, 0.5);
+    }
+}
+
+
+/* Footer */
+.main-footer {
+    background-color: var(--background-dark); /* Footer con el color de fondo más oscuro */
+    color: var(--light-text);
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9em;
+    border-top: 1px solid var(--border-color); /* Borde superior sutil */
+}
+
+.main-footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.main-footer p {
+    margin: 0;
+    color: var(--light-text);
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons a {
+    color: var(--light-text);
+    font-size: 1.5em;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icons a:hover {
+    color: var(--accent-color); /* Iconos de redes sociales con color de acento al hover */
+    transform: translateY(-3px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .main-nav {
+        display: none; /* Oculta la navegación principal en pantallas más pequeñas */
+    }
+
+    .main-header .header-btn {
+        margin-left: 0;
+    }
+
+    .main-header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero-content h2 {
+        font-size: 3em;
+    }
+
+    .hero-content p {
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-content {
+        flex-direction: column;
+    }
+
+    .contact-info, .contact-form {
+        max-width: 100%;
+        padding: 30px;
+    }
+
+    /* Adjustments for new gallery grid */
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 10px;
+    }
+    .gallery-item img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h2 {
+        font-size: 2em;
+    }
+
+    .hero-content p {
+        font-size: 0.9em;
+    }
+
+    .main-header .logo {
+        font-size: 1.5em;
+    }
+
+    .service-item h3 {
+        font-size: 1.5em;
+    }
+
+    .service-item p {
+        font-size: 1em;
+    }
+
+    .financing-item h3 {
+        font-size: 1.8em;
+    }
+
+    .financing-item .price {
+        font-size: 2.5em;
+    }
+
+    .financing-item ul li {
+        font-size: 0.95em;
+    }
+    
+    .calculator-form-container {
+        padding: 25px;
+        margin: 30px auto 0 auto;
+    }
+
+    .calculator-form-container p {
+        font-size: 1em;
+    }
+
+    .calculator-form-container label {
+        font-size: 1em;
+    }
+
+    .calculator-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .calculator-buttons .btn-primary,
+    .calculator-buttons .btn-secondary {
+        width: 100%; /* Full width buttons on small screens */
+        max-width: none;
+    }
+
+    .calculator-results h3 {
+        font-size: 1.4em;
+    }
+
+    .calculator-results p {
+        font-size: 1em;
+        flex-direction: column; /* Stack results vertically */
+        align-items: flex-start;
+    }
+
+    .calculator-results p span {
+        font-size: 1.1em;
+        margin-top: 5px;
+    }
+
+    .testimonial-text {
+        font-size: 1em;
+    }
+
+    .contact-info, .contact-form {
+        padding: 25px;
+    }
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 25px;
+    }
+}
