@@ -363,20 +363,12 @@ a:hover {
     line-height: 1.8;
 }
 
-/* Financing Section */
+/* Planes y Financiamiento */
 .financing-section {
     padding: 60px 0;
-    background-color: var(--background-light);
-}
-
-.financing-section .section-description {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 1.1em;
+    background-color: var(--background-dark); /* Fondo oscuro para esta sección */
     color: var(--light-text);
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
 }
 
 .financing-grid {
@@ -387,71 +379,69 @@ a:hover {
 }
 
 .financing-item {
-    background-color: var(--background-dark);
+    background-color: #212121; /* Un gris más oscuro para los items */
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color); /* Added subtle border */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Increased shadow for more pop */
     padding: 30px;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    display: flex; /* Usar flexbox para el contenido */
-    flex-direction: column; /* Apilar elementos verticalmente */
-    justify-content: space-between; /* Espaciar contenido y botón */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Added background-color for hover */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Distribuye el contenido verticalmente */
 }
 
 .financing-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+    transform: translateY(-12px) scale(1.02); /* More pronounced lift */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.65); /* Stronger shadow on hover */
+    background-color: #2a2a2a; /* Slightly lighter background on hover */
 }
 
 .financing-item h3 {
-    color: var(--secondary-color); /* Títulos de plan con color secundario */
-    font-size: 2em;
-    margin-bottom: 15px;
-    text-align: center;
+    color: var(--accent-color); /* Títulos de planes con color de acento */
+    font-size: 2.2em; /* Increased font size */
+    margin-bottom: 20px; /* Adjusted margin */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Subtle text shadow */
 }
 
 .financing-item .price {
-    font-size: 3em;
+    font-size: 2.8em; /* Increased font size for price */
     font-weight: bold;
-    color: var(--accent-color); /* Precio con color de acento */
-    margin-bottom: 20px;
-}
-
-.financing-item .price span {
-    font-size: 0.5em;
-    color: var(--light-text);
-    font-weight: normal;
+    color: var(--primary-color); /* Precio con color primario */
+    margin-bottom: 25px; /* Adjusted margin */
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.4); /* Subtle text shadow */
 }
 
 .financing-item ul {
     list-style: none;
     margin-bottom: 30px;
+    padding: 0;
     text-align: left;
-    flex-grow: 1; /* Permite que la lista de características ocupe el espacio restante */
+    width: 100%;
 }
 
 .financing-item ul li {
-    margin-bottom: 10px;
+    padding: 10px 0; /* Increased padding for list items */
     color: var(--light-text);
-    font-size: 1.05em;
-    display: flex;
-    align-items: center;
+    font-size: 1.1em; /* Increased font size for list items */
+    border-bottom: 1px solid var(--border-color); /* Separador sutil */
 }
 
-.financing-item ul li i {
-    margin-right: 10px;
-    color: var(--accent-color); /* Iconos de check en color de acento */
-    font-size: 1.2em;
-}
-
-.financing-item ul li .fa-times-circle {
-    color: #e57373; /* Rojo para iconos de "no incluido" */
+.financing-item ul li:last-child {
+    border-bottom: none;
 }
 
 .financing-button-container {
-    margin-top: auto; /* Empuja el botón al final del item */
+    margin-top: auto; /* Empuja el botón hacia abajo */
+    width: 100%;
+}
+
+.financing-item .btn-primary {
+    width: 90%; /* Botón wider */
+    padding: 15px; /* Increased padding */
+    font-size: 1.1em; /* Increased font size */
+    margin-top: 20px;
+    border-radius: 8px; /* Slightly more rounded corners */
 }
 
 /* Calculator Section */
